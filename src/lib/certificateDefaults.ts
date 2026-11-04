@@ -122,6 +122,7 @@ export const CONFIGURATION_OPTIONS = [
 ] as const;
 export const OPERATING_VOLTAGE_OPTIONS = [
   "24 V DC",
+  "24 V AC",
   "220 V AC",
   "110 V DC",
 ] as const;
