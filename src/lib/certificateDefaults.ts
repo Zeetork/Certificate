@@ -2,17 +2,18 @@ import { CertificateData } from "@/types/certificate";
 
 export function formatDisplayDate(dateStr?: string): string {
   if (!dateStr) return "-";
+  const str = dateStr.includes("T") ? dateStr.split("T")[0] : dateStr.trim();
   // If already formatted like DD-MM-YYYY or DD.MM.YYYY
-  if (/^\d{2}[-.]\d{2}[-.]\d{4}$/.test(dateStr.trim())) {
-    return dateStr.trim().replace(/\./g, "-");
+  if (/^\d{2}[-.]\d{2}[-.]\d{4}$/.test(str)) {
+    return str.replace(/\./g, "-");
   }
   // If YYYY-MM-DD
-  const parts = dateStr.split("-");
+  const parts = str.split("-");
   if (parts.length === 3 && parts[0].length === 4) {
     const [year, month, day] = parts;
     return `${day}-${month}-${year}`;
   }
-  return dateStr;
+  return str;
 }
 
 export function formatPoDate(dateStr?: string): string {

@@ -161,6 +161,7 @@ export const CERTIFICATE_TYPES: Record<CertificateType, CertificateTypeConfig> =
       customerPO: "",
       customerPODate: "",
       certificateDate: new Date().toISOString().split("T")[0],
+      date: new Date().toISOString().split("T")[0],
       testingLocation: "Coimbatore",
       productDescription: "Please refer above Sales Order",
       declarationText: "We warrant that the products supplied under our above referred Sales Order conform to the agreed specifications and are free from manufacturing defects in materials and workmanship.",

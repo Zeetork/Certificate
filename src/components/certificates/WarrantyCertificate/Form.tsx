@@ -76,9 +76,42 @@ export const WarrantyCertificateForm: React.FC<WarrantyCertificateFormProps> = (
 
         {openSections.info && (
           <div className="p-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Date
+              </label>
+              <input
+                type="date"
+                value={data.certificateDate ?? data.date ?? data.invoiceDate ?? ""}
+                onChange={(e) => {
+                  const val = e.target.value;
+                  onChange({
+                    ...data,
+                    certificateDate: val,
+                    date: val,
+                    invoiceDate: val,
+                  });
+                }}
+                className="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#FF2D01]"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Testing / Issue Location
+              </label>
+              <input
+                type="text"
+                value={data.testingLocation ?? "Coimbatore"}
+                onChange={(e) => handleChange("testingLocation", e.target.value)}
+                className="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#FF2D01]"
+                placeholder="e.g. Coimbatore"
+              />
+            </div>
+
             <div className="sm:col-span-2">
               <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Customer <span className="text-red-500">*</span>
+                Customer Name <span className="text-red-500">*</span>
               </label>
               <input
                 type="text"
@@ -139,39 +172,6 @@ export const WarrantyCertificateForm: React.FC<WarrantyCertificateFormProps> = (
                 onChange={(e) => handleChange("productDescription", e.target.value)}
                 className="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#FF2D01]"
                 placeholder="e.g. Please refer above Sales Order"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Certificate Date
-              </label>
-              <input
-                type="date"
-                value={data.certificateDate ?? data.date ?? data.invoiceDate ?? ""}
-                onChange={(e) => {
-                  const val = e.target.value;
-                  onChange({
-                    ...data,
-                    certificateDate: val,
-                    date: val,
-                    invoiceDate: val,
-                  });
-                }}
-                className="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#FF2D01]"
-              />
-            </div>
-
-            <div>
-              <label className="block text-xs font-semibold text-slate-700 mb-1">
-                Testing / Issue Location
-              </label>
-              <input
-                type="text"
-                value={data.testingLocation ?? "Coimbatore"}
-                onChange={(e) => handleChange("testingLocation", e.target.value)}
-                className="w-full text-sm border border-slate-300 rounded-xl px-3 py-2 outline-none focus:ring-2 focus:ring-[#FF2D01]"
-                placeholder="e.g. Coimbatore"
               />
             </div>
 
